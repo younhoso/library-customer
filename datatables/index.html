@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>UI-guides</title>
+		<meta charset="utf-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=2.0, user-scalable=yes'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <link rel="stylesheet" href="./assets/fontello/css/fontello.css">
+        <link rel="stylesheet" href="./assets/datatables.css">
+        <!--DESIGN CSS-->
+        <link rel="stylesheet" href="./assets/reset+grids.css">
+        <link rel="stylesheet" href="./assets/ui-guides.css">
+        
+    </head>
+	<body>
+        <!-- datatables -->
+        <section class="datatables">
+        <div class="l__wrapper">
+            <div class="tables__header clearfix">
+                <h3 class="tables__title">Data Tables</h3>    
+                <div class="tables__right">
+                    <i class="icon-resize-full"></i>
+                    <i class="icon-angle-down"></i>
+                </div>
+            </div>
+                <table id="example" class="dataTables_wrapper" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EXO</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>RED VELVET</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                    <tr>
+                        <td>가</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>나</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                    <tr>
+                        <td>다</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>라</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                    <tr>
+                        <td>마</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>바</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                    <tr>
+                        <td>사</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>아</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                    <tr>
+                        <td>EXO</td>
+                        <td>[EXO-SC: 팬사인회 당첨자 발표]</td>
+                        <td>2019.07.23</td>
+                        <td>165</td>
+                    </tr>
+                    <tr>
+                        <td>RED VELVET</td>
+                        <td>[RED VELVET:팬사인회 당첨자 발표]</td>
+                        <td>2019.07.19</td>
+                        <td>584</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        </div>
+        </section>
+        <!-- datatables 끝-->
+
+        <!--library js-->
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src="./assets/datatables.min.js"></script>
+        <script>
+            $(function(){
+                $('#example').DataTable();
+            
+                // ui-guides 페이지 datatables full스크린 
+                $('.icon-resize-full').on('click',function(e){
+                    $(e.currentTarget).toggleClass('icon-resize-small');
+                    $('.datatables').toggleClass('fullscreen');
+                });
+
+            // ui-guides 페이지 datatables slideToggle 동작 
+                $('.icon-angle-down').on('click',function(e){
+                    if($(this).hasClass('icon-angle-down')){
+                        $(this).removeClass('icon-angle-down').addClass('icon-angle-up');
+                    }else{
+                        $(this).addClass('icon-angle-down').removeClass('icon-angle-up');
+                    }
+                    $('.dataTables_wrapper').slideToggle();
+                });
+            });
+        </script>
+    </body>
+</html>
+        

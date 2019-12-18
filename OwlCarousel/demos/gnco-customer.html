@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="autoHeight usage demo">
+    <meta name="author" content="David Deutsch">
+    <title>
+      Auto Height Demo | Owl Carousel | 2.3.4
+    </title>
+
+    <!-- Stylesheets -->
+    
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./assets/css/docs.theme.css">
+    <link rel="stylesheet" href="./assets/css/reset+grids.css">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="./assets/owlcarousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="./assets/owlcarousel/assets/owl.theme.default.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="./assets/ico/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Yeah i know js should not be in header. Its required for demos.-->
+  </head>
+  <style>
+    
+    .column, .columns {padding: 0;}
+    .slider_main_top .active.center .item > .img-inner {
+      width: 80px;
+    }
+    .slider_main_top .img-inner {
+      width: 120px;
+      display: inline-block;
+      position: relative;
+      -webkit-transition: all 500ms ease-in-out;
+      -moz-transition: all 500ms ease-in-out;
+      -ms-transition: all 500ms ease-in-out;
+      -o-transition: all 500ms ease-in-out;
+      transition: all 500ms ease-in-out;
+      margin-top: 5px;
+    }
+    .slider_main_top .img-inner img {width: 60px; margin: 0 auto;}
+    .demos .slider_main_top .img-inner p {font-size: 11px;}
+    .demos .slider_main_top .owl-item .img-inner h4 {color: #333;}
+    
+    .owl-carousel .item {width: 125px; padding: 30px 0; border:1px solid #eee; display: inline-block; position: relative;}
+
+    .owl-carousel .item .more {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-color: transparent;
+      overflow: hidden;
+      text-align: left;
+      text-indent: -9999px;
+    }
+    .owl-carousel .item .item__inner {display: none;}
+    .owl-carousel .item .item__inner li{width: 97px; float: left; border: 1px solid #ededed;}
+   
+    .item .bg__img {width: 100%;display: none;}
+    
+    .slider_main_top .owl-item {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      height: 14vh;
+    }
+
+    #demos .owl-carousel .owl-item .img-inner {
+      -webkit-filter: grayscale(100%); 
+         -moz-filter: grayscale(100%); 
+          -ms-filter: grayscale(100%);
+           -o-filter: grayscale(100%);
+              filter: grayscale(100%);
+
+      -webkit-transition: all .6s ease;
+         -moz-transition: all .6s ease;
+          -ms-transition: all .6s ease;
+           -o-transition: all .6s ease;
+              transition: all .6s ease;
+    }
+   
+    #demos .owl-carousel .owl-item.center {
+      -webkit-filter: grayscale(0%);
+         -moz-filter: grayscale(0%); 
+          -ms-filter: grayscale(0%);
+           -o-filter: grayscale(0%);
+              filter: grayscale(0%);
+    }
+    #demos .owl-carousel .owl-item:hover {
+      -webkit-filter: grayscale(0%);
+         -moz-filter: grayscale(0%); 
+           -o-filter: grayscale(0%);
+              filter: grayscale(0%);
+    }
+    #demos .owl-carousel .owl-item.center .item {
+      width: 390px;
+      padding: 0;
+    }
+    .slider_main_top .item__inner .owl-item {}
+    #demos .owl-carousel .owl-item.center .bg__img {display: block;}
+    #demos .owl-carousel .owl-item.center .img-inner {display: none;}
+    #demos .owl-carousel .owl-item.center .item__inner {width: 390px; height: 103px; overflow: hidden; display: block;}
+    #demos .owl-carousel .owl-item.center .item__inner .item__wrap {width: 690px; height: 100%;}
+    #demos .owl-carousel .owl-stage {
+      width: 2000px !important;
+      height: 260px;
+      position: relative;
+      left: -133px;
+    }
+    .slide_btn a {
+      position: absolute;
+      top: 70%;
+      z-index: 9;
+      transform: translateY(50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #000;
+      text-align: center;
+      line-height: 60px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+      color: #fff;
+      font-size: 24px;
+    }
+    .slide_btn a.next {right: -50px;}
+    .slide_btn a.prev {left: -50px;}
+  </style>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="brand left">
+            <h3>
+              <a href="/OwlCarousel2/">owl.carousel.js</a> 
+            </h3>
+          </div>
+          <a id="toggle-nav" class="right">
+            <span></span> <span></span> <span></span> 
+          </a> 
+          <div class="nav-bar">
+            <ul class="clearfix">
+              <li> <a href="/OwlCarousel2/index.html">Home</a>  </li>
+              <li class="active">
+                <a href="/OwlCarousel2/demos/demos.html">Demos</a> 
+              </li>
+              <li> <a href="/OwlCarousel2/docs/started-welcome.html">Docs</a>  </li>
+              <li>
+                <a href="https://github.com/OwlCarousel2/OwlCarousel2/archive/2.3.4.zip">Download</a> 
+                <span class="download"></span> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- title -->
+    <section class="title">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>gnco-customer</h1>
+        </div>
+      </div>
+    </section>
+
+    <!--  Demos -->
+    <section id="demos" class="demos">
+      <div class="row slider_main_top l__wrapper">
+        <div class="large-12 columns">
+        
+          <div class="owl-carousel owl-theme inner">
+            <div class="item sajo1" data-num="1">
+              <article class="bg__img">
+                <img class="thumb" src="./assets/img/ban.png" alt="">
+              </article>
+              <article class="img-inner">
+                <img class="thumb" src="./assets/img/logo.png" alt="사조산업">
+                <p>자연을 식탁으로 전하는</p>
+                <h4>사조산업</h4>
+              </article>
+              <a href="#0" class="more">더보기</a>
+              <article class="item__inner clearfix">
+                <ul class="item__wrap ">
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item2.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item2.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                </ul>
+              </article>
+              <div class="slide_btn">
+                <a href="#" class="prev"><i class="fa fa-angle-left"></i></a>
+                <a href="#" class="next"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+            <div class="item sajo2" data-num="2">
+              <article class="bg__img">
+                <img class="thumb" src="./assets/img/ban.png" alt="">
+              </article>
+              <article class="img-inner">
+                <img class="thumb" src="./assets/img/logo.png" alt="사조해표">
+                <p>자연을 생각하는 기업</p>
+                <h4>사조해표</h4>
+              </article>
+              <a href="#0" class="more">더보기</a>
+              <article class="item__inner clearfix">
+                <ul class="item__wrap">
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                </ul>
+              </article>
+              <div class="slide_btn">
+                <a href="#" class="prev"><i class="fa-angle-left"></i></a>
+                <a href="#" class="next"><i class="fa-angle-right"></i></a>
+              </div>
+            </div>
+            <div class="item" data-num="3">
+              <article class="bg__img">
+                <img class="thumb" src="./assets/img/ban.png" alt="">
+              </article>
+              <article class="img-inner">
+                <img class="thumb" src="./assets/img/logo.png" alt="사조대림">
+                <p>자연을 식탁으로 전하는</p>
+                <h4>사조산업</h4>
+              </article>
+              <a href="#0" class="more">더보기</a>
+              <ul class="item__inner clearfix">
+                <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+              </ul>
+            </div>
+            <div class="item" data-num="4">
+              <article class="bg__img">
+                <img class="thumb" src="./assets/img/ban.png" alt="">
+              </article>
+              <article class="img-inner">
+                <img class="thumb" src="./assets/img/logo.png" alt="사조대림">
+                <p>자연을 식탁으로 전하는</p>
+                <h4>사조산업</h4>
+              </article>
+              <a href="#0" class="more">더보기</a>
+              <ul class="item__inner clearfix">
+                <li><a href="#0"><img src="./assets/img/item2.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img src="./assets/img/item2.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img src="./assets/img/item2.jpg" alt="아이템"></a></li>
+                <li><a href="#0"><img src="./assets/img/item2.jpg" alt="아이템"></a></li>
+              </ul>
+            </div>
+            <div class="item" data-num="5">
+                <article class="bg__img">
+                  <img class="thumb" src="./assets/img/ban.png" alt="">
+                </article>
+                <article class="img-inner">
+                  <img class="thumb" src="./assets/img/logo.png" alt="사조대림">
+                  <p>자연을 식탁으로 전하는</p>
+                  <h4>사조산업</h4>
+                </article>
+                <a href="#0" class="more">더보기</a>
+                <ul class="item__inner clearfix">
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                  <li><a href="#0"><img class="thumb" src="./assets/img/item1.jpg" alt="아이템"></a></li>
+                </ul>
+            </div>
+            
+          </div>
+     </section>
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js"></script>
+    <script>
+      $(function(){
+        var $smtElement = $('.demos').find('.inner')
+
+          var owl = $('.owl-carousel');
+          owl.owlCarousel({
+              // loop: true,
+              center: true,
+              items: 4,
+              autoWidth:true,
+              margin: 0,
+              nav: false,
+              dots: false,
+              // autoplay: true,
+              // autoplayTimeout:2000
+          });
+
+          
+        $smtElement.find(".item .more").on("click",function(e){
+          var $this = $(this);
+          e.preventDefault();
+
+          var num = $this.closest(".item").data("num");
+            $smtElement.trigger('to.owl.carousel', num-1);     //각각 컨텐츠 클릭시 가운데 센터로 오기
+
+          // if($this.closest(".center").length > 0 && $this.closest(".active").length > 0){
+          //   var url = $this.attr("href");
+          //   $(location).attr('href', url);  //가운데 센터로 오면 페이지 이동
+          // }else{
+          //   var num = $this.closest(".item").data("num");
+          //   $smtElement.trigger('to.owl.carousel', num-1);     //각각 컨텐츠 클릭시 가운데 센터로 오기
+          // }
+			  });
+
+        var container = $('.demos');
+        var sliderShow = container.find('.inner');
+        var sajo1 = sliderShow.find('.sajo1');
+        var slides = sajo1.find('.item__wrap > li');
+        var itemInner = sliderShow.find('.item__inner');
+        var itemWrap = itemInner.find('.item__wrap');
+        
+        var width = 97;
+        var slideCount = slides.length;
+        var slidesWidth = slides.outerWidth();
+        var num = 0;
+
+        itemWrap.css({width: width * slideCount})
+
+        var back = function() {
+          if(num == 0){return false;};
+          num--;
+          itemWrap.animate({marginLeft: -num * slidesWidth },300);
+        };
+
+        var next = function() {
+          if(slideCount <= num + 4){return false;}; //현재 보여지는 4개의 아이템보다 크거나 같으면 보이고, 빠져나온다.
+          num++;
+          itemWrap.animate({marginLeft: -slidesWidth * num},300);
+        };
+
+        $('.slide_btn').on('click','a',function(e){
+          e.preventDefault();
+          if($(this).hasClass('prev')){ 
+            back();
+          }else{
+            next();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

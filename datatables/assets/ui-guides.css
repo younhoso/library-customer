@@ -1,0 +1,407 @@
+/* hamburger__menu */
+/* WEB FONT(typography) */
+/* Text boxes */
+/* Buttons */
+/* Check box */
+/* Combo box */
+
+/* ==== WEB FONTSYSTEM(typography) ==== */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900|Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+body {font-family: 'Nunito Sans','Prompt','Gothic A1', sans-serif;}
+
+@keyframes sample-ani { 
+    0% {transform: rotate(0);} 
+    100% {transform: rotate(360deg);}
+}
+@keyframes indicator-effect1 {
+    0% {height: 0;}
+    100% {height: 78px;}
+}
+@keyframes indicator-effect2 {
+    0% {opacity: 1; transform: scale(0);}
+    100% {opacity: 0; transform: scale(2.5);}
+}
+.year {position: relative;}
+.year-indicator {position: absolute; left: 30px; top: 50%; transform: translate(0, -50%); font-size: 14px;}
+.year-indicator li {position: relative;}
+.year-indicator li:before {content: ''; position: absolute; left: 5px; top: 50%; width: 3px; height: 78px; background: #e0e0e0;}
+.year-indicator li:after {content: ''; position: absolute; left: 5px; top: 50%; width: 3px; height: 0; background: #ec1d25;}
+.year-indicator li:last-child:before {display: none;}
+.year-indicator li:last-child:after {display: none;}
+.year-indicator li + li {margin-top: 60px;}
+.year-indicator li a {position: relative; display: block; line-height: 20px; transition: all 0.3s;}
+.year-indicator li a:before {content: ''; position: relative; display: inline-block; width: 12px; height: 12px; border-radius: 10px; background: #e0e0e0; margin-right: 10px; vertical-align: middle; z-index: 10;}
+.year-indicator li a:after {content: ''; position: absolute; left: 0; top: 6px; width: 12px; height: 12px; border-radius: 10px; background: #ec1d25; transform: scale(0);}
+
+
+.year-indicator li.on:after {animation: indicator-effect1 3.8s ease-out 2.5s 1 normal forwards;}
+.year-indicator li.on a {font-weight: bold;}
+.year-indicator li.on a:before {background: #ec1d25;}
+.year-indicator li.on a:after {animation: indicator-effect2 1s ease-out 0s infinite normal forwards;}
+
+/*========= hamburger__menu =========*/
+.hamburger__menu {     
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    padding: 3px;
+    position: relative;
+    display: inline-block;
+}
+.hamburger__menu.active {
+    transform-origin: 50% 50%;
+     animation: sample-ani .5s ease-in-out;
+}
+.hamburger__menu .menu{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 4px;
+}
+.hamburger__menu .menu:first-child{
+    display: inline-block;
+    height: 4px;
+    background: #333;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.hamburger__menu .menu:last-child{
+    content: ''; 
+    display: inline-block; 
+    height: 4px; 
+    background: #333;
+    position: absolute;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.hamburger__menu .menu:first-child {
+    top: 5px;
+    left: 5px;
+}
+.hamburger__menu .menu:last-child{
+    top: 17px;
+    left: 5px;
+}
+
+
+.hamburger__menu .menu:first-child.active {
+        height: 1px;
+        top: 5px;
+        left: 11px;
+        background-color: #B32225;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -o-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+        -webkit-transform: rotate(-405deg) translate(-50%, -50%);
+        -moz-transform: rotate(-405deg) translate(-50%, -50%);
+        -ms-transform: rotate(-405deg) translate(-50%, -50%);
+        -o-transform: rotate(-405deg) translate(-50%, -50%);
+        transform: rotate(-405deg) translate(-50%, -50%);
+}
+
+.hamburger__menu .menu:last-child.active {
+    width: 20px;
+    height: 1px;
+    margin: 0;
+    top: 19px;
+    left: 10px;
+    background-color: #B32225;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -o-transform-origin: center center;
+    transform-origin: center center; 
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    -webkit-transform: rotate(405deg) translate(-50%, -50%);
+    -moz-transform: rotate(405deg) translate(-50%, -50%);
+    -ms-transform: rotate(405deg) translate(-50%, -50%);
+    -o-transform: rotate(405deg) translate(-50%, -50%);
+    transform: rotate(405deg) translate(-50%, -50%);
+}
+/*========= hamburger__menu 끝=========*/
+
+/*========= Arrow =========*/
+.Arrow {display: inline-block;}
+.Arrow .Arrow__down {width: 25px; height: 25px; position: relative; display: inline-block;}
+.Arrow .Arrow__down::before {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 69%; left: 20%; background: #333; transform: rotate(45deg) translate(-50%, -50%);}
+.Arrow .Arrow__down::after {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 29%; left: 63%; background: #333; transform: rotate(-45deg) translate(-50%, -50%);}
+.Arrow .Arrow__up {width: 25px; height: 25px; position: relative; display: inline-block; transform:rotate(180deg);}
+.Arrow .Arrow__up::before {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 69%; left: 20%; background: #333; transform: rotate(45deg) translate(-50%, -50%);}
+.Arrow .Arrow__up::after {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 29%; left: 63%; background: #333; transform: rotate(-45deg) translate(-50%, -50%);}
+.Arrow .Arrow__right {width: 25px; height: 25px; position: relative; display: inline-block; transform:rotate(270deg);}
+.Arrow .Arrow__right::before {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 69%; left: 20%; background: #333; transform: rotate(45deg) translate(-50%, -50%);}
+.Arrow .Arrow__right::after {content: ''; display: inline-block; width: 15px; height: 1px; position: absolute; top: 29%; left: 63%; background: #333; transform: rotate(-45deg) translate(-50%, -50%);}
+/*========= Arrow 끝=========*/
+
+/**========= font-size SYSTEM ========= */
+html {font-size: 10px;}
+p,li,td,th,strong { /*본문글씨 기본 크기 16px*/
+  font-size: 1.6rem;
+  font-weight: normal;
+  vertical-align: top;
+  letter-spacing: -0.025em;
+}
+p,td {line-height: 1.6;}
+/**========= font-size SYSTEM 끝========= */
+
+/* ==== Text boxes ==== */
+.input-field {position: relative;}
+.input-field > label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    cursor: text;
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    text-align: initial;
+    
+    -webkit-transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+    transition: color .2s ease-out, -webkit-transform .2s ease-out;
+    
+    transition: transform .2s ease-out, color .2s ease-out;
+    transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+    
+    -moz-transform: translateY(14px);
+    -ms-transform: translateY(14px);
+    -o-transform: translateY(14px);
+    -webkit-transform: translateY(14px);
+    transform: translateY(14px);
+
+}
+.name:focus + label {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    color: #ccc;
+    -webkit-transform: translateY(-2px) scale(0.8);
+    -moz-transform: translateY(-2px) scale(0.8);
+    -ms-transform: translateY(-2px) scale(0.8);
+    -o-transform: translateY(-2px) scale(0.8);
+    transform: translateY(-2px) scale(0.8);
+}
+
+.input-field .name {
+    border-width: 1%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: background 0s ease-out;
+    background: no-repeat center bottom, center calc(100% - 1px);
+    background-size: 0 100%, 100% 100%;
+    background-image: linear-gradient(to top, #902e2e 2px, rgba(144, 46, 46, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+}
+.name:focus { background-size: 100% 100%, 100% 100%; transition-duration:0.3s; box-shadow: none;  }
+
+.search-area {
+    width: 200px;
+    position: relative;
+    border: 2px solid #333;
+    border-radius: 40px;
+    padding: 4px 50px 4px 20px;
+    box-sizing: border-box;
+}
+.search-area .input--searchbox{ border: 0; }
+.search-area .btn--search {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.search-area .btn--search .icon-search {font-size: 1.4rem;}
+/* ==== Text boxes 끝==== */
+
+/* ==== Buttons==== */
+.btn-field {margin-bottom: 10px;}
+[class*="btn"]{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    outline: none;
+    border-radius: 0.2em;
+    border: 0;
+    cursor: pointer;
+}
+/* ==== Buttons BG ==== */
+.btn-field.black-bg .btn{
+    color: #fff;
+    background-color: #333;
+}
+.btn-field.white-bg .btn{
+    border: 1px solid #333;
+    background-color: #fff; color: #333;
+}
+
+.btn-field.blue-bg .btn{
+    background-color: #0046B7; color: #fff;
+}
+.btn-field.red-bg .btn{
+    background-color: #B32225; color: #fff;
+}
+/* ==== Buttons BG 끝==== */
+
+/* ==== Buttons line ==== */
+.btn-field.black-line button{
+    color: #fff;
+    border: 1px solid #333;
+    background-color: #fff;
+}
+.btn-field.white-line button{
+    border: 1px solid #333;
+    background-color: #fff; color: #333;
+}
+.btn-field.blue-line button{
+    color: #0046B7;
+    border: 1px solid #0046B7;
+}
+.btn-field.red-line button{
+    color: #B32225;
+    border: 1px solid #B32225;
+}
+/* ==== Buttons line 끝==== */
+
+/*==== checked ====*/
+.checked__inner {
+    
+}
+.checked__inner label {
+    font-size: 1.4rem;
+    color: #9e9e9e;
+}
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.checked__inner label input{
+ 
+}
+.checked__inner label span {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checked__inner label span.radius {
+    border-radius: 50%; 
+}
+input[type="checkbox"] + span::before,
+input[type="checkbox"] + span::after {
+    content: '';
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    z-index: 1;
+}
+
+[type="checkbox"]:checked + span:before {
+    top: 3px;
+    left: 3px;
+    width: 2px;
+    height: 6px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+} 
+[type="checkbox"]:checked + span.black::after {
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #333;
+    background-color: #333;
+    z-index: 0;
+}
+[type="checkbox"]:checked + span.black.radius::after {
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #333;
+    background-color: #333;
+    z-index: 0;
+    border-radius: 50%;
+}
+[type="checkbox"]:checked + span.blue::after {
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #0046B7;
+    background-color: #0046B7;
+    z-index: 0;
+}
+[type="checkbox"]:checked + span.red::after {
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #B32225;
+    background-color: #B32225;
+    z-index: 0;
+}
+.checked__inner label span::before {
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    left: 6px;
+    top: 10px;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.checked__inner label span::after {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    z-index: 0;
+}
+.checked__inner label span.radius::after{
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    z-index: 0;
+    border-radius: 50%;
+}
+/*==== checked 끝====*/
