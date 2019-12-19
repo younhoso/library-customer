@@ -108,6 +108,7 @@
       $(function(){
         var size = $('.js-inner .item').length;
         var i = 1;
+       
         var owl = $('.owl-carousel');
         owl.owlCarousel({
           items:1,
@@ -118,11 +119,12 @@
       
         
         $('.owl-next').click(function() {
-            console.log(100 % size * i)
-            $('.progressbar-fill').css({
-              width: 100 % size * i,
-              transition: "width 0.5s ease-in-out"
-            });
+            console.log(((100 * i ) / size) + '%')
+            if(size === i){
+              $('.progressbar-fill').css({ width: ((100 * i ) / size) + '%' })
+              return false;
+            };
+            $('.progressbar-fill').animate({ width: ((100 * i ) / size) + '%' },500);
             i++;
         });
       
